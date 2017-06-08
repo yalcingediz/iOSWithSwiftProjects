@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DreamListerCoreDataExample/ItemDetailsVC.swift"
+            timestampString = "518637811.292208"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "ItemDetailsVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DreamListerCoreDataExample.ItemDetailsVC.detailsField.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;DreamListerCoreDataExample.CustomTextField&gt;"
+                  moduleName = "DreamListerCoreDataExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yalcingediz/Development/iOS/iOS10_Swift3/iOSWithSwiftProjects/DreamListerCoreDataExample/DreamListerCoreDataExample/ItemDetailsVC.swift"
+                  timestampString = "518554577.063128"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DreamListerCoreDataExample.ItemDetailsVC.detailsField.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;DreamListerCoreDataExample.CustomTextField&gt;"
+                  moduleName = "DreamListerCoreDataExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yalcingediz/Development/iOS/iOS10_Swift3/iOSWithSwiftProjects/DreamListerCoreDataExample/DreamListerCoreDataExample/ItemDetailsVC.swift"
+                  timestampString = "518554577.073066"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DreamListerCoreDataExample.ItemDetailsVC.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; DreamListerCoreDataExample.ItemDetailsVC"
+                  moduleName = "DreamListerCoreDataExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yalcingediz/Development/iOS/iOS10_Swift3/iOSWithSwiftProjects/DreamListerCoreDataExample/DreamListerCoreDataExample/ItemDetailsVC.swift"
+                  timestampString = "518554577.07818"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DreamListerCoreDataExample.ItemDetailsVC.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;DreamListerCoreDataExample.ItemDetailsVC&gt;"
+                  moduleName = "DreamListerCoreDataExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yalcingediz/Development/iOS/iOS10_Swift3/iOSWithSwiftProjects/DreamListerCoreDataExample/DreamListerCoreDataExample/ItemDetailsVC.swift"
+                  timestampString = "518554577.083645"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DreamListerCoreDataExample/ItemDetailsVC.swift"
+            timestampString = "518638738.52244"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "saveItemBtnPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
