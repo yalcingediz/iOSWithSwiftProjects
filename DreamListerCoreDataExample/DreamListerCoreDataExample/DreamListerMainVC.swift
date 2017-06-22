@@ -76,8 +76,16 @@ class DreamListerMainVC: UIViewController, UITableViewDelegate, UITableViewDataS
     func attemptFetchItems() {
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
         
-        fetchRequest.sortDescriptors = [dateSort]
+        if segment.selectedSegmentIndex == 0 {
+            fetchRequest.sortDescriptors = [dateSort]
+        } else if segment.selectedSegmentIndex == 1 {
+            fetchRequest.sortDescriptors = [priceSort]
+        } else if segment.selectedSegmentIndex == 2 {
+            fetchRequest.sortDescriptors = [titleSort]
+        }
         
         fetchedItemsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedItemsController.delegate = self
@@ -89,6 +97,12 @@ class DreamListerMainVC: UIViewController, UITableViewDelegate, UITableViewDataS
             print("\(error)")
         }
         
+    }
+    
+    @IBAction func segmentedControllerValueChanged(_ sender: UISegmentedControl) {
+        print("segmentedCotroller value changed to \(self.segment.selectedSegmentIndex)")
+        self.attemptFetchItems()
+        self.tableView.reloadData()
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -126,6 +140,7 @@ class DreamListerMainVC: UIViewController, UITableViewDelegate, UITableViewDataS
             break
         }
     }
+    
     
     func generateTestData() {
         let item1 = Item(context: context)
