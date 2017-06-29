@@ -14,6 +14,11 @@
 		6879F2921EFF686C00779566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6879F2911EFF686C00779566 /* Assets.xcassets */; };
 		6879F2951EFF686C00779566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6879F2931EFF686C00779566 /* LaunchScreen.storyboard */; };
 		6879F29D1EFF68B400779566 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6879F29C1EFF68B400779566 /* GoogleService-Info.plist */; };
+		68CC6A411F04849200145DFA /* TopLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A401F04849200145DFA /* TopLogoView.swift */; };
+		68CC6A441F0484AE00145DFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A431F0484AE00145DFA /* Constants.swift */; };
+		68CC6A461F04885E00145DFA /* SocialSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A451F04885E00145DFA /* SocialSignInButton.swift */; };
+		68CC6A481F048AF500145DFA /* EmailAdressTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A471F048AF500145DFA /* EmailAdressTextField.swift */; };
+		68CC6A4A1F048CDA00145DFA /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A491F048CDA00145DFA /* SignInButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		6879F2941EFF686C00779566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6879F2961EFF686C00779566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6879F29C1EFF68B400779566 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		68CC6A401F04849200145DFA /* TopLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLogoView.swift; sourceTree = "<group>"; };
+		68CC6A431F0484AE00145DFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		68CC6A451F04885E00145DFA /* SocialSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButton.swift; sourceTree = "<group>"; };
+		68CC6A471F048AF500145DFA /* EmailAdressTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAdressTextField.swift; sourceTree = "<group>"; };
+		68CC6A491F048CDA00145DFA /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		D7474BDCEB7F9954AB045484 /* Pods_BGSocialNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BGSocialNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,6 +73,7 @@
 		6879F2891EFF686C00779566 /* BGSocialNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				68CC6A421F04849D00145DFA /* Util */,
 				6879F2A01EFF6C9600779566 /* Model */,
 				6879F29F1EFF6C8C00779566 /* View */,
 				6879F29E1EFF6C7D00779566 /* Controller */,
@@ -88,6 +99,10 @@
 		6879F29F1EFF6C8C00779566 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				68CC6A401F04849200145DFA /* TopLogoView.swift */,
+				68CC6A451F04885E00145DFA /* SocialSignInButton.swift */,
+				68CC6A471F048AF500145DFA /* EmailAdressTextField.swift */,
+				68CC6A491F048CDA00145DFA /* SignInButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,6 +119,14 @@
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		68CC6A421F04849D00145DFA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				68CC6A431F0484AE00145DFA /* Constants.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		6DDB6043A0B34BCB187C24A5 /* Frameworks */ = {
@@ -246,8 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68CC6A4A1F048CDA00145DFA /* SignInButton.swift in Sources */,
+				68CC6A461F04885E00145DFA /* SocialSignInButton.swift in Sources */,
 				6879F28D1EFF686C00779566 /* SignInVC.swift in Sources */,
+				68CC6A441F0484AE00145DFA /* Constants.swift in Sources */,
 				6879F28B1EFF686C00779566 /* AppDelegate.swift in Sources */,
+				68CC6A481F048AF500145DFA /* EmailAdressTextField.swift in Sources */,
+				68CC6A411F04849200145DFA /* TopLogoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
