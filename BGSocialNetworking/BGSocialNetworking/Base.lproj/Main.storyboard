@@ -93,7 +93,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ITs-YF-FEb" customClass="EmailAndPasswordTextFields" customModule="BGSocialNetworking" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="36" width="314" height="21"/>
                                         <attributedString key="attributedText"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPJ-PE-Z9Y" customClass="SignInButton" customModule="BGSocialNetworking" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="314" height="37"/>
@@ -102,6 +102,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TQy-Nz-Y57"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -127,6 +130,8 @@
                     </view>
                     <connections>
                         <outlet property="FacebookLoginButton" destination="Wd6-sC-LQb" id="EuF-pr-l1N"/>
+                        <outlet property="emailTextField" destination="XvI-N6-SCy" id="KgY-ZC-LVK"/>
+                        <outlet property="passwordTextField" destination="ITs-YF-FEb" id="fgs-5i-UXT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

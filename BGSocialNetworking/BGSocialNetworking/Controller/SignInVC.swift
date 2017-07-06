@@ -13,6 +13,9 @@ import Firebase
 class SignInVC: UIViewController {
     
     @IBOutlet weak var FacebookLoginButton: SocialSignInButton!
+    @IBOutlet weak var emailTextField: EmailAndPasswordTextFields!
+    @IBOutlet weak var passwordTextField: EmailAndPasswordTextFields!
+    
     var dict : [String : AnyObject]!
     
     override func viewDidLoad() {
@@ -67,5 +70,27 @@ class SignInVC: UIViewController {
             }
         })
     }
+    
+    @IBAction func signInButtonPressed(_ sender: SignInButton) {
+        let firebaseAuth = Auth.auth()
+        if let email = emailTextField.text, let pwd = passwordTextField.text {
+            firebaseAuth.signIn(withEmail: email, password: pwd, completion: {(user, error) in
+                if error == nil {
+                    print("SUCCESS - user, \(email), authenticated with Firebase")
+                } else {
+                    print("\(error!.localizedDescription)...So, will try to sign in user: \(email)")
+                    firebaseAuth.createUser(withEmail: email, password: pwd, completion: {(user, error) in
+                        if error != nil {
+                            print(error!.localizedDescription)
+                            print("FAILURE - Unable to create and authenticate with Firebase using emai: \(email)")
+                        } else {
+                            print("SUCCESS - user, \(email), created and authenticated with Firebase")
+                        }
+                    })
+                }
+            })
+        }
+    }
+    
 }
 
