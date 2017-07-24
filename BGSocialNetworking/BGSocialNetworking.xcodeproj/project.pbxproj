@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		377620A57E2C1A067FAB4667 /* Pods_BGSocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7474BDCEB7F9954AB045484 /* Pods_BGSocialNetworking.framework */; };
+		683D57911F0F186C0085E36A /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D57901F0F186C0085E36A /* FeedVC.swift */; };
 		6879F28B1EFF686C00779566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879F28A1EFF686C00779566 /* AppDelegate.swift */; };
 		6879F28D1EFF686C00779566 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6879F28C1EFF686C00779566 /* SignInVC.swift */; };
 		6879F2901EFF686C00779566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6879F28E1EFF686C00779566 /* Main.storyboard */; };
@@ -19,12 +20,14 @@
 		68CC6A461F04885E00145DFA /* SocialSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A451F04885E00145DFA /* SocialSignInButton.swift */; };
 		68CC6A481F048AF500145DFA /* EmailAdressTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A471F048AF500145DFA /* EmailAdressTextField.swift */; };
 		68CC6A4A1F048CDA00145DFA /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC6A491F048CDA00145DFA /* SignInButton.swift */; };
+		68E2E0861F1156DB00220A1E /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E2E0851F1156DB00220A1E /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E8BBA5DAFB9FFB27B8FF493 /* Pods-BGSocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BGSocialNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BGSocialNetworking/Pods-BGSocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		2FED2AF9DA3020FD6B468221 /* Pods-BGSocialNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BGSocialNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-BGSocialNetworking/Pods-BGSocialNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		683B219C1F0AC5A9004037B2 /* BGSocialNetworking.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BGSocialNetworking.entitlements; sourceTree = "<group>"; };
+		683D57901F0F186C0085E36A /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		6879F2871EFF686C00779566 /* BGSocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BGSocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6879F28A1EFF686C00779566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6879F28C1EFF686C00779566 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		68CC6A451F04885E00145DFA /* SocialSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButton.swift; sourceTree = "<group>"; };
 		68CC6A471F048AF500145DFA /* EmailAdressTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAdressTextField.swift; sourceTree = "<group>"; };
 		68CC6A491F048CDA00145DFA /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		68E2E0851F1156DB00220A1E /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		D7474BDCEB7F9954AB045484 /* Pods_BGSocialNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BGSocialNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				6879F28C1EFF686C00779566 /* SignInVC.swift */,
+				683D57901F0F186C0085E36A /* FeedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				68CC6A451F04885E00145DFA /* SocialSignInButton.swift */,
 				68CC6A471F048AF500145DFA /* EmailAdressTextField.swift */,
 				68CC6A491F048CDA00145DFA /* SignInButton.swift */,
+				68E2E0851F1156DB00220A1E /* CircleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,10 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68E2E0861F1156DB00220A1E /* CircleView.swift in Sources */,
 				68CC6A4A1F048CDA00145DFA /* SignInButton.swift in Sources */,
 				68CC6A461F04885E00145DFA /* SocialSignInButton.swift in Sources */,
 				6879F28D1EFF686C00779566 /* SignInVC.swift in Sources */,
 				68CC6A441F0484AE00145DFA /* Constants.swift in Sources */,
+				683D57911F0F186C0085E36A /* FeedVC.swift in Sources */,
 				6879F28B1EFF686C00779566 /* AppDelegate.swift in Sources */,
 				68CC6A481F048AF500145DFA /* EmailAdressTextField.swift in Sources */,
 				68CC6A411F04849200145DFA /* TopLogoView.swift in Sources */,

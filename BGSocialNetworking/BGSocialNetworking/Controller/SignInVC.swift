@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
     
@@ -21,7 +22,13 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // let loginButton = 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            print("SignInVC:viewDidAppear: ID Found in Keychain")
+            performSegue(withIdentifier: SEGUE_ID_FROM_SIGN_IN_VC_TO_FEED_VC, sender: nil)
+        }
     }
     
     @IBAction func FacebookLoginButtonPressed(_ sender: SocialSignInButton) {
@@ -67,6 +74,9 @@ class SignInVC: UIViewController {
             }
             else {
                 print("SignInVC:firebaseAuth: SUCCESS - authenticated with Firebase.")
+                if let user = user {
+                    self.completeSignIn(id: user.uid)
+                }
             }
         })
     }
@@ -77,6 +87,9 @@ class SignInVC: UIViewController {
             firebaseAuth.signIn(withEmail: email, password: pwd, completion: {(user, error) in
                 if error == nil {
                     print("SUCCESS - user, \(email), authenticated with Firebase")
+                    if let user = user {
+                        self.completeSignIn(id: user.uid)
+                    }
                 } else {
                     print("\(error!.localizedDescription)...So, will try to sign in user: \(email)")
                     firebaseAuth.createUser(withEmail: email, password: pwd, completion: {(user, error) in
@@ -85,6 +98,9 @@ class SignInVC: UIViewController {
                             print("FAILURE - Unable to create and authenticate with Firebase using emai: \(email)")
                         } else {
                             print("SUCCESS - user, \(email), created and authenticated with Firebase")
+                            if let user = user {
+                                self.completeSignIn(id: user.uid)
+                            }
                         }
                     })
                 }
@@ -92,5 +108,11 @@ class SignInVC: UIViewController {
         }
     }
     
+    func completeSignIn(id: String) {
+        if KeychainWrapper.standard.set(id, forKey: KEY_UID) != true {
+            print("FAILURE - Could not save id to Keychain")
+        }
+        performSegue(withIdentifier: SEGUE_ID_FROM_SIGN_IN_VC_TO_FEED_VC, sender: nil)
+    }
 }
 
