@@ -75,7 +75,7 @@ class SignInVC: UIViewController {
             else {
                 print("SignInVC:firebaseAuth: SUCCESS - authenticated with Firebase.")
                 if let user = user {
-                    self.completeSignIn(id: user.uid)
+                    self.completeSignIn(id: user.uid, providerId: credential.provider)
                 }
             }
         })
@@ -88,7 +88,7 @@ class SignInVC: UIViewController {
                 if error == nil {
                     print("SUCCESS - user, \(email), authenticated with Firebase")
                     if let user = user {
-                        self.completeSignIn(id: user.uid)
+                        self.completeSignIn(id: user.uid, providerId: user.providerID)
                     }
                 } else {
                     print("\(error!.localizedDescription)...So, will try to sign in user: \(email)")
@@ -99,7 +99,7 @@ class SignInVC: UIViewController {
                         } else {
                             print("SUCCESS - user, \(email), created and authenticated with Firebase")
                             if let user = user {
-                                self.completeSignIn(id: user.uid)
+                                self.completeSignIn(id: user.uid, providerId: user.providerID)
                             }
                         }
                     })
@@ -108,10 +108,15 @@ class SignInVC: UIViewController {
         }
     }
     
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, providerId: String ) {
         if KeychainWrapper.standard.set(id, forKey: KEY_UID) != true {
             print("FAILURE - Could not save id to Keychain")
         }
+        
+        // Firebase user creationwitih his/her provider info, if needed
+        let userData: DICTIONARY_OF_STR_TO_STR = [DB_ATTRIBUTE_PROVIDER: providerId]
+        DataService.ds.createFirebaseDBUser(uId: id, userData: userData)
+        
         performSegue(withIdentifier: SEGUE_ID_FROM_SIGN_IN_VC_TO_FEED_VC, sender: nil)
     }
 }
