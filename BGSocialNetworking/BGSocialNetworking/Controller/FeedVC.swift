@@ -9,10 +9,12 @@
 import UIKit
 import FirebaseAuth
 import SwiftKeychainWrapper
+import Firebase
 
 class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var listOfPosts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +24,28 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         
         DataService.ds.REF_POSTS.observe(.value, with: { snapshot in
+            /*
             if let value = snapshot.value {
                 print(value)
             }
+             */
+            print("FeedVC:viewDidLoad:DataService.ds.REF_POSTS.observe: Children Count = \(snapshot.childrenCount)")
+            var cnt = 1
+            for childSnap in snapshot.children.allObjects {
+                if let snap = childSnap as? DataSnapshot {
+                    if let snapshotValue = snapshot.value as? NSDictionary, let snapVal = snapshotValue[snap.key] as? AnyObject {
+                        print("SNAPval-\(cnt)", snapVal)
+                        cnt += 1
+                        
+                        if let postDict = snapshotValue as? DICTIONARY_OF_STR_TO_ANY_OBJECT {
+                            let key = snap.key
+                            let post = Post(postKey: key, postDate: postDict)
+                            self.listOfPosts.append(post)
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
         })
     }
     
@@ -35,11 +56,14 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        //print("FeedVC:tableView numberOfRowsInSection: self.listOfPosts.count = \(self.listOfPosts.count)")
+        return self.listOfPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW_CELL_ID, for: indexPath)
+        let post = listOfPosts[indexPath.row]
+        //print("FeedVC:tableView cellForRowAt: caption = \(post.caption)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW_CELL_ID) as! PostCell
         
         return cell
     }
