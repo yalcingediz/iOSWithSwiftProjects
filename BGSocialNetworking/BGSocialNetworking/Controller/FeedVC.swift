@@ -11,10 +11,13 @@ import FirebaseAuth
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var listOfPosts = [Post]()
+    var imagePicker = UIImagePickerController()
+    
+    @IBOutlet weak var addImage: CircleView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,9 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         DataService.ds.REF_POSTS.observe(.value, with: { snapshot in
             /*
@@ -84,6 +90,23 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         performSegue(withIdentifier: SEGUE_ID_FROM_FEED_VC_TO_SIGN_IN_VC, sender: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            addImage.image = image
+        } else {
+            print("ERROR: FeedVC:imagePickerController: No valid image was selected!")
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addImageTapped(_ sender: UITapGestureRecognizer) {
+        if let image = addImage.image as? UIImage {
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

@@ -191,13 +191,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M89-Zk-YWA">
                                         <rect key="frame" x="8" y="8" width="366" height="60"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="xYe-qv-Xaw" customClass="CircleView" customModule="BGSocialNetworking" customModuleProvider="target">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="xYe-qv-Xaw" customClass="CircleView" customModule="BGSocialNetworking" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                 <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Hw4-lO-v6U"/>
                                                     <constraint firstAttribute="width" constant="60" id="Q7B-Fu-oNf"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="xte-Uc-gBH" appends="YES" id="nEp-zH-aFT"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add a caption" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LC8-2E-H2u" customClass="EmailAndPasswordTextFields" customModule="BGSocialNetworking" customModuleProvider="target">
                                                 <rect key="frame" x="70" y="15" width="226" height="30"/>
@@ -354,14 +358,20 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addImage" destination="xYe-qv-Xaw" id="rxt-u5-60z"/>
                         <outlet property="tableView" destination="C98-cC-YJh" id="Ghy-Pk-a8f"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="FromFeedVCToSignInVC" id="STO-Cy-Rhg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Zu-IE-sIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Rsu-if-Avi">
+                <tapGestureRecognizer id="Rsu-if-Avi" userLabel="Sign Out- Tap Gesture Recognizer">
                     <connections>
                         <action selector="singOutButtonPressed:" destination="wUq-Pn-SBb" id="aqh-ub-oiv"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="xte-Uc-gBH" userLabel="Add Image- Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="addImageTapped:" destination="wUq-Pn-SBb" id="koA-eN-Xyj"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
