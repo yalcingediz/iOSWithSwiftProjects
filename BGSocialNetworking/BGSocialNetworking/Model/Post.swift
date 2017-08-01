@@ -39,6 +39,8 @@ class Post {
     init(postKey: String, postDate: DICTIONARY_OF_STR_TO_ANY_OBJECT) {
         self._postKey = postKey
         
+        //print("Post:init: postKey = \(postKey)  postDate = \(postDate)")
+        
         if let caption = postDate[DB_ATTRIBUTE_CAPTION] as? String {
             self._caption = caption
         }

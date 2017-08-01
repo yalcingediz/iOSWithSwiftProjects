@@ -32,12 +32,11 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             print("FeedVC:viewDidLoad:DataService.ds.REF_POSTS.observe: Children Count = \(snapshot.childrenCount)")
             var cnt = 1
             for childSnap in snapshot.children.allObjects {
-                if let snap = childSnap as? DataSnapshot {
+                if let snap = childSnap as? DataSnapshot { // childSnap is one object of DB_POSTS aka "posts"
                     if let snapshotValue = snapshot.value as? NSDictionary, let snapVal = snapshotValue[snap.key] as? AnyObject {
-                        print("SNAPval-\(cnt)", snapVal)
-                        cnt += 1
+                        print("SNAPval-\(cnt)", snapVal);cnt += 1
                         
-                        if let postDict = snapshotValue as? DICTIONARY_OF_STR_TO_ANY_OBJECT {
+                        if let postDict = snapVal as? DICTIONARY_OF_STR_TO_ANY_OBJECT {
                             let key = snap.key
                             let post = Post(postKey: key, postDate: postDict)
                             self.listOfPosts.append(post)
@@ -62,10 +61,14 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = listOfPosts[indexPath.row]
-        //print("FeedVC:tableView cellForRowAt: caption = \(post.caption)")
-        let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW_CELL_ID) as! PostCell
+        print("FeedVC:tableView cellForRowAt: caption = \(post.caption)")
         
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW_CELL_ID) as? PostCell {
+            cell.configureCell(post: post)
+            return cell
+        } else {
+            return PostCell()
+        }
     }
      // Implement for UITableViewDataSource: END
     
