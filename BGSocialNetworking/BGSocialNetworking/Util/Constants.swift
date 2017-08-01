@@ -19,3 +19,5 @@ typealias DICTIONARY_OF_STR_TO_STR = Dictionary<String, String>
 let DB_POSTS = "posts"
 let DB_USERS = "users"
 let DB_ATTRIBUTE_PROVIDER = "provider"
+let DB_ATTRIBUTE_CAPTION  = "caption"
+let DB_ATTRIBUTE_LIKES    = "likes"
