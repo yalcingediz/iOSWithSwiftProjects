@@ -16,6 +16,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
     @IBOutlet weak var tableView: UITableView!
     var listOfPosts = [Post]()
     var imagePicker = UIImagePickerController()
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     @IBOutlet weak var addImage: CircleView!
     
@@ -70,8 +71,14 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
         print("FeedVC:tableView cellForRowAt: caption = \(post.caption)")
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW_CELL_ID) as? PostCell {
-            cell.configureCell(post: post)
-            return cell
+            if let imageUrl = post.imageUrl as? NSString {
+                if let img = FeedVC.imageCache.object(forKey: imageUrl) { // in Cache?
+                    cell.configureCell(post: post, image: img)
+                } else {                                                       // No
+                    cell.configureCell(post: post)
+                }
+                return cell
+            }
         } else {
             return PostCell()
         }

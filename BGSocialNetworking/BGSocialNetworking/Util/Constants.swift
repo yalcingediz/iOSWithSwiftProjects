@@ -17,9 +17,21 @@ let TABLE_VIEW_CELL_ID = "PostCell"
 typealias DICTIONARY_OF_STR_TO_STR        = Dictionary<String, String>
 typealias DICTIONARY_OF_STR_TO_ANY_OBJECT = Dictionary<String, AnyObject>
 
+/*
+     Firebase related declarations - START
+*/
+// Database related declaration
 let DB_POSTS = "posts"
 let DB_USERS = "users"
 let DB_ATTRIBUTE_PROVIDER  = "provider"
 let DB_ATTRIBUTE_CAPTION   = "caption"
 let DB_ATTRIBUTE_LIKES     = "likes"
 let DB_ATTRIBUTE_IMAGE_URL = "imageUrl"
+
+// Firebase Storage related declarations
+let STORAGE_POST_IMAGES = "post-images"
+let POST_IMAGE_SIZE: Int64 = 10 * 1024 * 1024
+
+/*
+     Firebase related declarations - END
+ */
